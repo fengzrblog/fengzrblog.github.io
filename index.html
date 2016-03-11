@@ -67,7 +67,7 @@
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/11/hello-world/" class="article-date">
-  <time datetime="2016-03-11T06:05:27.169Z" itemprop="datePublished">2016-03-11</time>
+  <time datetime="2016-03-11T06:49:43.675Z" itemprop="datePublished">2016-03-11</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/11/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/03/11/hello-world/">记录一下今天的学习内容</a>
     </h1>
   
 
@@ -86,20 +86,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p><strong><em>1.创建新用户</em></strong></p>
+<p>由于是以有root权限的用户登陆的，直接输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser newuser     //newuser为新的用户名</span><br></pre></td></tr></table></figure>
+<p>然后填入密码，及相应的用户信息就可以了</p>
+<p><strong><em>2.给新创建的用户，添加sudo权限</em></strong></p>
+<p>同样是登陆了有root权限的用户下进行操作，这里操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
+<p>找到以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>在root    ALL=(ALL:ALL) ALL 下方添加上，想添加sudo权限的用户，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br><span class="line">newuser    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>然后，按Ctrl+X保存并退出。<br>以上就建好了带有sudo权限的用户：newuser</p>
+<p><strong><em>3.去掉sudo时，密码输入的步骤</em></strong></p>
+<p>如果以newuser进行ssh登陆，进行sudo操作时，送需要输入密码，很繁琐。怎么去掉呢？操作如下（以root用户为例）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
+<p>在文件的最底部输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#includedir /etc/sudoers.d</span><br><span class="line"></span><br><span class="line">newuser ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
+<p>Ctrl+X保存并退出</p>
+<p><strong><em>4.去掉ssh登陆时，输入密码的步骤</em></strong></p>
+<p>通过Google找到如下方法：<br><a href="https://linuxconfig.org/passwordless-ssh#h2-copy-key-to-remote-host" target="_blank" rel="external">https://linuxconfig.org/passwordless-ssh#h2-copy-key-to-remote-host</a></p>
+<p>第一步：在本地host创建key，使用ssh-keygen命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-keygen</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/xx/.ssh/id_rsa):   //按enter即可</span><br><span class="line">/Users/xx/.ssh/id_rsa already exists.</span><br><span class="line">Overwrite (y/n)? y</span><br><span class="line">Enter passphrase (empty for no passphrase): //按enter即可</span><br><span class="line">Enter same passphrase again: //按enter即可</span><br><span class="line">Your identification has been saved in /Users/xx/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /Users/xx/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:4E6Ygv2PfI+Pqja1aOtf3jOhAHBQqncPc2XGWK8ag xx@xxdeMacBook.local</span><br><span class="line">The key&apos;s randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">|o +oo . ..o      |</span><br><span class="line">|o=.. o * o       |</span><br><span class="line">|o  .  O o        |</span><br><span class="line">| o. .* o         |</span><br><span class="line">|. oE o S        |</span><br><span class="line">|  .+ o           |</span><br><span class="line">| .o. .          |</span><br><span class="line">|o**o+ .          |</span><br><span class="line">|BBO*o=o.         |</span><br><span class="line">+----[SHA256]-----+</span><br><span class="line">xxdeMacBook:~ xx$</span><br></pre></td></tr></table></figure>
+<p>第二步：将key拷贝到远程host，使用ssh-copy-id命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-copy-id newuser@xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
+<p>这时出现了报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id:command not found</span><br></pre></td></tr></table></figure>
+<p>通过Google找到如下方法：<br><a href="https://www.jacobtomlinson.co.uk/2013/01/24/ssh-copy-id-os-x/" target="_blank" rel="external">https://www.jacobtomlinson.co.uk/2013/01/24/ssh-copy-id-os-x/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o /usr/local/bin/ssh-copy-id</span><br><span class="line">sudo chmod +x /usr/local/bin/ssh-copy-id</span><br></pre></td></tr></table></figure></p>
+<p>输入以上命令后，果然好使了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-copy-id newuser@xx.xx.xx.xx</span><br><span class="line">newuser@xx.xx.xx.xx&apos;s password:</span><br></pre></td></tr></table></figure>
+<p>输入密码之后，出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection closed by xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
+<p>以后再SSH登陆newuser，就不用输入密码了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/11/hello-world/" data-id="cilnca4980000qbdfwq15r0pl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/11/hello-world/" data-id="cilncgala0000s3dfkbunkkc4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,7 +162,7 @@
       <ul>
         
           <li>
-            <a href="/2016/03/11/hello-world/">Hello World</a>
+            <a href="/2016/03/11/hello-world/">记录一下今天的学习内容</a>
           </li>
         
       </ul>
