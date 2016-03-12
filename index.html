@@ -1,0 +1,611 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="蠢萌的蓝胖">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="蠢萌的蓝胖">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="蠢萌的蓝胖">
+<meta name="twitter:description">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 蠢萌的蓝胖 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">蠢萌的蓝胖</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/11/linux-log-local/" itemprop="url">
+                  linux导出日志到本地
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-03-11T17:01:18+08:00" content="2016-03-11">
+              2016-03-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###<strong><em>#起因：</em></strong><br>最近一段时间，公司用于开发测试的服务器，总出现连接超时的情况。具体表现为：</p>
+<blockquote>
+<p>  1.使用SSH登录不上服务器（不会弹出密码输入栏）<br>  2.DNS解析超时<br>  3.不定时出现无法连接的情况，之后会自行恢复正常</p>
+</blockquote>
+<p>通过分析，判断是微软azure虚拟机出了问题。将该问题反馈给了微软的工程师后，我的难题来了：微软工程师需要我提供这台虚拟机中     <strong><em>/var/ 下所有log</em></strong>，供他们进行分析。</p>
+<p>###<strong><em>#问题整理：</em></strong></p>
+<p>####<strong><em>将虚拟机下/var/下的所有log，打包并导出至本地，通过邮件提供给微软工程师</em></strong></p>
+<p><strong>解决思路分三步:</strong></p>
+<p>####<strong><em>1.ssh登陆</em></strong><br> 等服务器自动恢复正常后，ssh输入账号密码，登陆成功</p>
+<p>####<strong><em>2.打包var下的所有log</em></strong><br> ssh登陆成功之后，找到/var/log目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#cd /var/log</span><br><span class="line">#ls</span><br></pre></td></tr></table></figure></p>
+<p> 发现/var/log目录下，日志很多，于是决定将该目录下的所有文件压缩打包为1个文件。Google到tar.gz格式打包整个目录的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#tar -zcvf archive-name.tar.gz directory-name</span><br></pre></td></tr></table></figure>
+<p>进行如下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#cd ~      //回到总目录</span><br><span class="line">#tar -zcvf log-02-16.tar.gz /var/log</span><br></pre></td></tr></table></figure>
+<p>出现报错：</p>
+<blockquote>
+<p>Cannot open: Permission denied</p>
+</blockquote>
+<p>通过rm命令，删除无效文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rm log-02-16.tar.gz            //删除文件</span><br></pre></td></tr></table></figure>
+<p>通过Marshal指点，在命令前面加上sudo，即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo tar -zcvf log-02-16.tar.gz /var/log</span><br></pre></td></tr></table></figure>
+<p>打包成功。</p>
+<p>####<strong><em>3.导出gz文件至本地</em></strong></p>
+<ul>
+<li>先下载filezilla客户端   <a href="https://filezilla-project.org/" target="_blank" rel="external">https://filezilla-project.org/</a></li>
+<li>安装完毕之后</li>
+<li>打开filezilla客户端，操作顺序：</li>
+</ul>
+<blockquote>
+<p>文件&gt;站点管理器&gt;新站点&gt;常规</p>
+<p>主机名：公用虚拟 IP (VIP)地址    如 11.11.11.11<br>端口：输入端口号   如22<br>协议：选择“SFTP”<br>登陆类型：正常<br>用户名：<br> 密码：</p>
+</blockquote>
+<ul>
+<li>以上内容输入完成后，点击“连接”</li>
+<li>pwd命令查看远程站点当前工作目录</li>
+<li>在该目录下找到文件（log-02-16.tar.gz），双击进行下载</li>
+<li>找到log-02-16.tar.gz，邮件给微软工程师，问题解决！</li>
+</ul>
+<p>以上操作设备为 Macbook Air</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/11/sudo-no-pswd/" itemprop="url">
+                  记录一下今天的学习内容
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-03-11T17:00:21+08:00" content="2016-03-11">
+              2016-03-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong><em>1.创建新用户</em></strong></p>
+<p>由于是以有root权限的用户登陆的，直接输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser newuser     //newuser为新的用户名</span><br></pre></td></tr></table></figure>
+<p>然后填入密码，及相应的用户信息就可以了</p>
+<p><strong><em>2.给新创建的用户，添加sudo权限</em></strong></p>
+<p>同样是登陆了有root权限的用户下进行操作，这里操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
+<p>找到以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>在root    ALL=(ALL:ALL) ALL 下方添加上，想添加sudo权限的用户，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br><span class="line">newuser    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<p>然后，按Ctrl+X保存并退出。<br>以上就建好了带有sudo权限的用户：newuser</p>
+<p><strong><em>3.去掉sudo时，密码输入的步骤</em></strong></p>
+<p>如果以newuser进行ssh登陆，进行sudo操作时，送需要输入密码，很繁琐。怎么去掉呢？操作如下（以root用户为例）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
+<p>在文件的最底部输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#includedir /etc/sudoers.d</span><br><span class="line"></span><br><span class="line">newuser ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
+<p>Ctrl+X保存并退出</p>
+<p><strong><em>4.去掉ssh登陆时，输入密码的步骤</em></strong></p>
+<p>通过Google找到如下方法：<br><a href="https://linuxconfig.org/passwordless-ssh#h2-copy-key-to-remote-host" target="_blank" rel="external">https://linuxconfig.org/passwordless-ssh#h2-copy-key-to-remote-host</a></p>
+<p>第一步：在本地host创建key，使用ssh-keygen命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-keygen</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/xx/.ssh/id_rsa):   //按enter即可</span><br><span class="line">/Users/xx/.ssh/id_rsa already exists.</span><br><span class="line">Overwrite (y/n)? y</span><br><span class="line">Enter passphrase (empty for no passphrase): //按enter即可</span><br><span class="line">Enter same passphrase again: //按enter即可</span><br><span class="line">Your identification has been saved in /Users/xx/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /Users/xx/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:4E6Ygv2PfI+Pqja1aOtf3jOhAHBQqncPc2XGWK8ag xx@xxdeMacBook.local</span><br><span class="line">The key&apos;s randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">|o +oo . ..o      |</span><br><span class="line">|o=.. o * o       |</span><br><span class="line">|o  .  O o        |</span><br><span class="line">| o. .* o         |</span><br><span class="line">|. oE o S        |</span><br><span class="line">|  .+ o           |</span><br><span class="line">| .o. .          |</span><br><span class="line">|o**o+ .          |</span><br><span class="line">|BBO*o=o.         |</span><br><span class="line">+----[SHA256]-----+</span><br><span class="line">xxdeMacBook:~ xx$</span><br></pre></td></tr></table></figure>
+<p>第二步：将key拷贝到远程host，使用ssh-copy-id命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-copy-id newuser@xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
+<p>这时出现了报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id:command not found</span><br></pre></td></tr></table></figure>
+<p>通过Google找到如下方法：<br><a href="https://www.jacobtomlinson.co.uk/2013/01/24/ssh-copy-id-os-x/" target="_blank" rel="external">https://www.jacobtomlinson.co.uk/2013/01/24/ssh-copy-id-os-x/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o /usr/local/bin/ssh-copy-id</span><br><span class="line">sudo chmod +x /usr/local/bin/ssh-copy-id</span><br></pre></td></tr></table></figure></p>
+<p>输入以上命令后，果然好使了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-copy-id newuser@xx.xx.xx.xx</span><br><span class="line">newuser@xx.xx.xx.xx&apos;s password:</span><br></pre></td></tr></table></figure>
+<p>输入密码之后，出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection closed by xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
+<p>以后再SSH登陆newuser，就不用输入密码了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="fenng" />
+          <p class="site-author-name" itemprop="name">fenng</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+          
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fenng</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+
+</body>
+</html>
