@@ -8,26 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="####起因：最近一段时间，公司用于开发测试的服务器，总出现连接超时的情况。具体表现为：
 
-  1.使用SSH登录不上服务器（不会弹出密码输入栏）  2.DNS解析超时  3.不定时出现无法连接的情况，之后会自行恢复正常
-
-通过分析，判断是微软azure虚拟机出了问题。将该问题反馈给了微软的工程师后，我的难题来了：微软工程师需要我提供这台虚拟机中     /var/ 下所有log，供他们进行分析。">
+  1.使用SSH登录不上服务器（不会弹出密码输入栏）  2.DNS解析超时  3.不定时出现无法连接的情况，之后会自行恢复正常">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux导出日志到本地">
 <meta property="og:url" content="http://yoursite.com/2016/03/11/linux-log-local/index.html">
 <meta property="og:site_name" content="蠢萌的蓝胖">
 <meta property="og:description" content="####起因：最近一段时间，公司用于开发测试的服务器，总出现连接超时的情况。具体表现为：
 
-  1.使用SSH登录不上服务器（不会弹出密码输入栏）  2.DNS解析超时  3.不定时出现无法连接的情况，之后会自行恢复正常
-
-通过分析，判断是微软azure虚拟机出了问题。将该问题反馈给了微软的工程师后，我的难题来了：微软工程师需要我提供这台虚拟机中     /var/ 下所有log，供他们进行分析。">
-<meta property="og:updated_time" content="2016-03-11T09:02:37.478Z">
+  1.使用SSH登录不上服务器（不会弹出密码输入栏）  2.DNS解析超时  3.不定时出现无法连接的情况，之后会自行恢复正常">
+<meta property="og:updated_time" content="2016-03-13T02:28:32.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux导出日志到本地">
 <meta name="twitter:description" content="####起因：最近一段时间，公司用于开发测试的服务器，总出现连接超时的情况。具体表现为：
 
-  1.使用SSH登录不上服务器（不会弹出密码输入栏）  2.DNS解析超时  3.不定时出现无法连接的情况，之后会自行恢复正常
-
-通过分析，判断是微软azure虚拟机出了问题。将该问题反馈给了微软的工程师后，我的难题来了：微软工程师需要我提供这台虚拟机中     /var/ 下所有log，供他们进行分析。">
+  1.使用SSH登录不上服务器（不会弹出密码输入栏）  2.DNS解析超时  3.不定时出现无法连接的情况，之后会自行恢复正常">
   
   
     <link rel="icon" href="/favicon.png">
@@ -219,6 +213,7 @@
 <blockquote>
 <p>  1.使用SSH登录不上服务器（不会弹出密码输入栏）<br>  2.DNS解析超时<br>  3.不定时出现无法连接的情况，之后会自行恢复正常</p>
 </blockquote>
+<a id="more"></a> 
 <p>通过分析，判断是微软azure虚拟机出了问题。将该问题反馈给了微软的工程师后，我的难题来了：微软工程师需要我提供这台虚拟机中     <strong><em>/var/ 下所有log</em></strong>，供他们进行分析。</p>
 <p>###<strong><em>#问题整理：</em></strong></p>
 <p>####<strong><em>将虚拟机下/var/下的所有log，打包并导出至本地，通过邮件提供给微软工程师</em></strong></p>

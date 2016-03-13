@@ -201,43 +201,6 @@
 <blockquote>
 <p>  1.使用SSH登录不上服务器（不会弹出密码输入栏）<br>  2.DNS解析超时<br>  3.不定时出现无法连接的情况，之后会自行恢复正常</p>
 </blockquote>
-<p>通过分析，判断是微软azure虚拟机出了问题。将该问题反馈给了微软的工程师后，我的难题来了：微软工程师需要我提供这台虚拟机中     <strong><em>/var/ 下所有log</em></strong>，供他们进行分析。</p>
-<p>###<strong><em>#问题整理：</em></strong></p>
-<p>####<strong><em>将虚拟机下/var/下的所有log，打包并导出至本地，通过邮件提供给微软工程师</em></strong></p>
-<p><strong>解决思路分三步:</strong></p>
-<p>####<strong><em>1.ssh登陆</em></strong><br> 等服务器自动恢复正常后，ssh输入账号密码，登陆成功</p>
-<p>####<strong><em>2.打包var下的所有log</em></strong><br> ssh登陆成功之后，找到/var/log目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#cd /var/log</span><br><span class="line">#ls</span><br></pre></td></tr></table></figure></p>
-<p> 发现/var/log目录下，日志很多，于是决定将该目录下的所有文件压缩打包为1个文件。Google到tar.gz格式打包整个目录的代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#tar -zcvf archive-name.tar.gz directory-name</span><br></pre></td></tr></table></figure>
-<p>进行如下操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#cd ~      //回到总目录</span><br><span class="line">#tar -zcvf log-02-16.tar.gz /var/log</span><br></pre></td></tr></table></figure>
-<p>出现报错：</p>
-<blockquote>
-<p>Cannot open: Permission denied</p>
-</blockquote>
-<p>通过rm命令，删除无效文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rm log-02-16.tar.gz            //删除文件</span><br></pre></td></tr></table></figure>
-<p>通过Marshal指点，在命令前面加上sudo，即</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo tar -zcvf log-02-16.tar.gz /var/log</span><br></pre></td></tr></table></figure>
-<p>打包成功。</p>
-<p>####<strong><em>3.导出gz文件至本地</em></strong></p>
-<ul>
-<li>先下载filezilla客户端   <a href="https://filezilla-project.org/" target="_blank" rel="external">https://filezilla-project.org/</a></li>
-<li>安装完毕之后</li>
-<li>打开filezilla客户端，操作顺序：</li>
-</ul>
-<blockquote>
-<p>文件&gt;站点管理器&gt;新站点&gt;常规</p>
-<p>主机名：公用虚拟 IP (VIP)地址    如 11.11.11.11<br>端口：输入端口号   如22<br>协议：选择“SFTP”<br>登陆类型：正常<br>用户名：<br> 密码：</p>
-</blockquote>
-<ul>
-<li>以上内容输入完成后，点击“连接”</li>
-<li>pwd命令查看远程站点当前工作目录</li>
-<li>在该目录下找到文件（log-02-16.tar.gz），双击进行下载</li>
-<li>找到log-02-16.tar.gz，邮件给微软工程师，问题解决！</li>
-</ul>
-<p>以上操作设备为 Macbook Air</p>
-
       
     </div>
     
@@ -246,6 +209,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/11/linux-log-local/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
