@@ -171,6 +171,65 @@
 
       <div class="body-wrap">
   
+    <article id="post-sudo-no-pswd" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/sudo-no-pswd/" class="article-date">
+  	<time datetime="2016-03-13T02:32:21.339Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/sudo-no-pswd/">记录一下今天的学习内容</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong><em>1.创建新用户</em></strong></p>
+<p>由于是以有root权限的用户登陆的，直接输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser newuser     //newuser为新的用户名</span><br></pre></td></tr></table></figure>
+<p>然后填入密码，及相应的用户信息就可以了<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/13/sudo-no-pswd/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="hexo-linux-log-local" class="article article-type-hexo" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -197,7 +256,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###<strong><em>#起因：</em></strong><br>最近一段时间，公司用于开发测试的服务器，总出现连接超时的情况。具体表现为：</p>
+        <p><strong><em> 起因：</em></strong><br>最近一段时间，公司用于开发测试的服务器，总出现连接超时的情况。具体表现为：</p>
 <blockquote>
 <p>  1.使用SSH登录不上服务器（不会弹出密码输入栏）<br>  2.DNS解析超时<br>  3.不定时出现无法连接的情况，之后会自行恢复正常</p>
 </blockquote>
@@ -213,90 +272,6 @@
         <p class="article-more-link">
           <a  href="/2016/03/11/linux-log-local/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-sudo-no-pswd" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/11/sudo-no-pswd/" class="article-date">
-  	<time datetime="2016-03-11T09:00:21.410Z" itemprop="datePublished">2016-03-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/11/sudo-no-pswd/">记录一下今天的学习内容</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong><em>1.创建新用户</em></strong></p>
-<p>由于是以有root权限的用户登陆的，直接输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser newuser     //newuser为新的用户名</span><br></pre></td></tr></table></figure>
-<p>然后填入密码，及相应的用户信息就可以了</p>
-<p><strong><em>2.给新创建的用户，添加sudo权限</em></strong></p>
-<p>同样是登陆了有root权限的用户下进行操作，这里操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
-<p>找到以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
-<p>在root    ALL=(ALL:ALL) ALL 下方添加上，想添加sudo权限的用户，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># User privilege specification</span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br><span class="line">newuser    ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
-<p>然后，按Ctrl+X保存并退出。<br>以上就建好了带有sudo权限的用户：newuser</p>
-<p><strong><em>3.去掉sudo时，密码输入的步骤</em></strong></p>
-<p>如果以newuser进行ssh登陆，进行sudo操作时，送需要输入密码，很繁琐。怎么去掉呢？操作如下（以root用户为例）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br></pre></td></tr></table></figure>
-<p>在文件的最底部输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#includedir /etc/sudoers.d</span><br><span class="line"></span><br><span class="line">newuser ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
-<p>Ctrl+X保存并退出</p>
-<p><strong><em>4.去掉ssh登陆时，输入密码的步骤</em></strong></p>
-<p>通过Google找到如下方法：<br><a href="https://linuxconfig.org/passwordless-ssh#h2-copy-key-to-remote-host" target="_blank" rel="external">https://linuxconfig.org/passwordless-ssh#h2-copy-key-to-remote-host</a></p>
-<p>第一步：在本地host创建key，使用ssh-keygen命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-keygen</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/xx/.ssh/id_rsa):   //按enter即可</span><br><span class="line">/Users/xx/.ssh/id_rsa already exists.</span><br><span class="line">Overwrite (y/n)? y</span><br><span class="line">Enter passphrase (empty for no passphrase): //按enter即可</span><br><span class="line">Enter same passphrase again: //按enter即可</span><br><span class="line">Your identification has been saved in /Users/xx/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /Users/xx/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:4E6Ygv2PfI+Pqja1aOtf3jOhAHBQqncPc2XGWK8ag xx@xxdeMacBook.local</span><br><span class="line">The key&apos;s randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">|o +oo . ..o      |</span><br><span class="line">|o=.. o * o       |</span><br><span class="line">|o  .  O o        |</span><br><span class="line">| o. .* o         |</span><br><span class="line">|. oE o S        |</span><br><span class="line">|  .+ o           |</span><br><span class="line">| .o. .          |</span><br><span class="line">|o**o+ .          |</span><br><span class="line">|BBO*o=o.         |</span><br><span class="line">+----[SHA256]-----+</span><br><span class="line">xxdeMacBook:~ xx$</span><br></pre></td></tr></table></figure>
-<p>第二步：将key拷贝到远程host，使用ssh-copy-id命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-copy-id newuser@xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
-<p>这时出现了报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id:command not found</span><br></pre></td></tr></table></figure>
-<p>通过Google找到如下方法：<br><a href="https://www.jacobtomlinson.co.uk/2013/01/24/ssh-copy-id-os-x/" target="_blank" rel="external">https://www.jacobtomlinson.co.uk/2013/01/24/ssh-copy-id-os-x/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/ssh-copy-id.sh -o /usr/local/bin/ssh-copy-id</span><br><span class="line">sudo chmod +x /usr/local/bin/ssh-copy-id</span><br></pre></td></tr></table></figure></p>
-<p>输入以上命令后，果然好使了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxdeMacBook:~ xx$ ssh-copy-id newuser@xx.xx.xx.xx</span><br><span class="line">newuser@xx.xx.xx.xx&apos;s password:</span><br></pre></td></tr></table></figure>
-<p>输入密码之后，出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection closed by xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
-<p>以后再SSH登陆newuser，就不用输入密码了</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
       
       <div class="clearfix"></div>
     </div>
