@@ -266,14 +266,9 @@
       
         <p><strong><em>Mac自带svn命令行工具</em></strong></p>
 <ol>
-<li><p>先做一次checkout：</p>
-<figure class="highlight plain"><figcaption><span>co --username username</span><a href="https://svn...```" target="_blank" rel="external">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> 2. 输入密码，登录成功</span><br><span class="line"> 3.  以上操作将svn文件下载到了本地</span><br><span class="line"> 4.  找到该文件夹，可在该文件夹下添加要上传的文件</span><br><span class="line"> 5.  然后，将新的文件加到版本控制</span><br><span class="line">```svn add filename</span><br><span class="line">svn add foldername／</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将新的文件／文件夹提交到服务器</p>
-<figure class="highlight plain"><figcaption><span>ci filename -m 'describe'</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn ci foldername/ -m &apos;describe&apos;</span><br></pre></td></tr></table></figure>
+<li>先做一次checkout：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn co --username username website</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-
       
     </div>
     
@@ -286,6 +281,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/14/svn-upload/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
